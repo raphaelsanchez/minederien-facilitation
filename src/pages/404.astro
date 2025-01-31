@@ -1,0 +1,49 @@
+---
+import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
+import Layout from "../layouts/Layout.astro";
+
+import mimo404 from "../assets/404.svg";
+import Button from "../components/ui/Button.astro";
+
+// Metadatas
+const metadata = {
+    title: "404 | Mine de rien",
+    description: "Il semble que vous soyez perdu...",
+};
+---
+
+<Layout metadata={metadata}>
+    <section>
+        <Image src={mimo404} width={600} alt="Illustration 404" />
+        <h1 class="mt-0">Oups ! Il semblerait que vous soyez perdu...</h1>
+        <p class="text-xl text-center">
+            Il est possible que la page que vous recherchiez ai déménagé ou
+            n'existe plus.<br />Aussi je vous invite à retourner à l'accueil.
+        </p>
+        <Button href="/" class="btn-primary">
+            <Icon name="home" />
+            <span>Revenir à l'accueil</span>
+        </Button>
+    </section>
+</Layout>
+
+<style>
+    main {
+        align-self: center;
+    }
+    section {
+        display: grid;
+        place-content: center;
+        align-items: center;
+        justify-content: center;
+        min-height: 100dvh;
+    }
+    h1 {
+        margin: 1rem 0 0;
+        font-size: 4rem;
+    }
+    img {
+        width: 100%;
+    }
+</style>

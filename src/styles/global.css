@@ -12,6 +12,9 @@
     /* fonts */
     --font-brand: "Levorotary", sans-serif;
     --font-body: "Inter", sans-serif;
+
+    /* Animations */
+    --transition: 0.3s ease-in-out;
 }
 
 /* RESETS */
