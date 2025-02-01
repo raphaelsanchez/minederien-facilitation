@@ -1,0 +1,120 @@
+---
+import { Image } from "astro:assets";
+import Logo from "../assets/minederien.svg";
+import Hamburger from "./Hamburger.astro";
+import Navigation from "./Navigation.astro";
+import SkipLinks from "./SkipLinks.astro";
+import SocialLinks from "./SocialLinks.astro";
+
+const navLinks = [
+    { href: "/a-propos", label: "À propos" },
+    { href: "/collaborations", label: "Collaborations" },
+    { href: "/offres", label: "Mes offres" },
+    { href: "#footer", label: "Keep in touch !" },
+];
+---
+
+<SkipLinks />
+<header class="container">
+    <a class="header-brand flex-1" href="/">
+        <Image
+            class="logo"
+            src={Logo}
+            alt="Logo Mine de rien"
+            width={200}
+            loading="eager"
+        />
+    </a>
+    <div class="header-nav-group flex-2 hidden">
+        <Navigation id="main-navigation" navLinks={navLinks} />
+        <SocialLinks />
+    </div>
+    <Hamburger
+        class="nav-toggle"
+        aria-label="Toggle menu"
+        targetSelector=".header-nav-group"
+    />
+</header>
+
+<script>
+    const toggleButton = document.querySelector(".toggle-menu-button");
+    const targetMenu = document.querySelector(".header-nav-group");
+
+    if (toggleButton && targetMenu) {
+        toggleButton.addEventListener("click", () => {
+            targetMenu.classList.toggle("hidden");
+            const isExpanded =
+                toggleButton.getAttribute("aria-expanded") === "true";
+            toggleButton.setAttribute("aria-expanded", String(!isExpanded));
+        });
+    }
+</script>
+
+<style>
+    header {
+        display: flex;
+        align-items: center;
+        padding: 1rem;
+        max-width: 90rem !important;
+    }
+    .nav-toggle {
+        border: 1px solid var(--color-neutral-dark);
+        width: 3rem;
+        height: 3rem;
+        border-radius: 100vmax;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .nav-toggle[aria-expanded="true"] {
+        background-color: white;
+    }
+    .header-nav-group {
+        display: flex;
+        gap: 1rem;
+        justify-content: space-between;
+    }
+
+    @media (max-width: calc(58em - 1px)) {
+        .logo {
+            max-width: 150px;
+            height: auto;
+        }
+
+        .header-nav-group {
+            position: absolute;
+            inset: 100% 1rem auto;
+            z-index: 100;
+
+            translate: 0 0;
+            opacity: 1;
+            visibility: visible;
+
+            transition:
+                translate 0.3s,
+                opacity 0.3s;
+
+            flex-direction: column;
+            gap: 1rem;
+            border: 1px solid;
+            border-radius: 1rem;
+            box-shadow: 2px 4px 0 2px rgba(0, 0, 0, 1);
+            background-color: white;
+        }
+
+        .header-nav-group.hidden {
+            translate: 0 2rem;
+            opacity: 0;
+            visibility: hidden;
+        }
+    }
+
+    @media (min-width: 58em) {
+        .nav-toggle {
+            display: none;
+        }
+        .header-nav-group {
+            align-items: center;
+        }
+    }
+</style>

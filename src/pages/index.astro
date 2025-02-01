@@ -1,50 +1,153 @@
 ---
 import { Image } from "astro:assets";
-import logo from "../assets/minederien.svg";
-import Layout from "../layouts/Layout.astro";
+import Button from "../components/ui/Button.astro";
+import Layout from "../layouts/DefaultLayout.astro";
+
+import { getCollection } from "astro:content";
+
+import mimoLoupe from "../assets/mimo-loupe.svg";
+import mimoMagicient from "../assets/mimo-magicien.svg";
+import Review from "../components/Review.astro";
+
+// Metadatas
+const metadata = {
+    title: "Mine de rien, Facilication graphique",
+    description: "Facilication graphique",
+};
+
+// Get reviews
+const allReviews = await getCollection("reviews");
+
+const lastReviews = allReviews.filter(({ data }) => data.featured);
 ---
 
-<Layout
-    title="Mine de rien"
-    description="Facilitation graphique, illustration, design thinking"
->
-    <section class="coming-soon">
-        <Image class="logo" src={logo} width={400} alt="Mine de rien" />
-        <h1>Mimo se refait une beauté et reviens très vite...</h1>
+<Layout metadata={metadata}>
+    <header id="hero" class="hero">
+        <div class="hero-main container alignwide flow align-center">
+            <div class="stack flex-2">
+                <h1>Le scribing, pour quoi faire ?</h1>
+                <p class="font-brand text-3xl">
+                    20% de ce que nous communiquons à l'oral est retenu.
+                </p>
+                <p>
+                    <strong
+                        >Le scribing synthétise, reformule et donne à voir vos
+                        échanges par le visuel.</strong
+                    ><br />
+                    Cette discipline de facilitation graphique est un outil collaboratif
+                    puissant pour embarquer vos équipes vers une vision commune,
+                    faciliter les apprentissages et animer vos événements.
+                </p>
+            </div>
+            <Image
+                class="hero-image"
+                src={mimoLoupe}
+                alt="Illustration de scribing"
+                loading="eager"
+            />
+        </div>
+        <div class="hero-bottom container alignlarge flow align-center">
+            <div>
+                <p>
+                    Le scribing se pratique dans tout type de structure
+                    (entreprises, collectivités, associations, écoles),
+                    s'adresse à tout type de public pour parler de tout type de
+                    sujet.
+                </p>
+                <p>
+                    Différentes modalités d’accompagnement existent, s’inventent
+                    et se déclinent en version papier et numérique.
+                </p>
+            </div>
+            <Image
+                src={mimoMagicient}
+                alt="Illustration de mimo magicient"
+                loading="eager"
+            />
+        </div>
+
+        <div class="container text-center">
+            <Button href="/offres">Découvrir mes offres</Button>
+        </div>
+    </header>
+    <section id="about" class="container">
+        <h2>C'est une bonne situation ça scribe ?</h2>
         <p>
-            En attendant, vous pouvez <a
-                href="mailto:minederinen.facilitation@gmail.com">m'écrire</a
-            > ou me retrouver sur <a
-                href="https://www.linkedin.com/in/emilie-allard/">LinkedIn</a>
+            Après un cursus en enseignement lettres modernes puis en
+            communication, j'ai travaillé pour différentes organisations dans
+            les métiers de la communication.
+        </p>
+        <p>
+            L'envie d'entreprendre et d'explorer d'autres manières de
+            communiquer m'ont amené à découvrir la facilitation graphique. Après
+            une formation à la prise de note visuelle, je lance mon entreprise
+            Mine de rien en juillet 2023.
+        </p>
+        <p><Button href="/a-propos">Faisons connaissance</Button></p>
+    </section>
+
+    <section id="works" class="container">
+        <h2>Quelques "coups de mine"</h2>
+        <p>[À venir ...]</p>
+    </section>
+
+    <section id="partners" class="container">
+        <h2>Ils m'ont fait confiances</h2>
+        <p>[Logos partenaires principaux]</p>
+    </section>
+
+    <section id="reviews" class="stack">
+        <div class="container">
+            <h2>Parce qu'ils en parlent le mieux !</h2>
+
+            <p>
+                Commodo consequat eiusmod ad id ut duis eiusmod cillum ex minim
+                mollit minim enim nostrud. Tempor labore velit est dolore
+                eiusmod occaecat ex irure excepteur cupidatat aliquip. Id irure
+                aliquip consequat laborum duis excepteur nostrud. Excepteur
+                tempor quis amet commodo ea sint esse. Ea anim cupidatat eu
+                consectetur cupidatat tempor ut pariatur. ecat ex mollit
+                occaecat cupidatat.
+            </p>
+        </div>
+
+        <div class="scrollable-grid container alignlarge">
+            {lastReviews.map((review) => <Review class="review" {...review} />)}
+        </div>
+
+        <p class="more text-center">
+            <Button href="/avis">Voir plus d'avis client</Button>
         </p>
     </section>
 </Layout>
 
 <style>
-    section {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        height: 100vh;
+    .hero {
+        padding-block-end: 8vw;
+    }
+    .hero-bottom {
+        flex-direction: row-reverse;
     }
 
-    h1,
-    p {
-        text-align: center;
+    .scrollable-grid {
+        display: grid;
+        gap: 1rem;
     }
 
-    h1 {
-        font-size: clamp(3.375rem, 3.814vw + 1.64rem, 4.5rem);
-        color: var(--color-primary);
+    @media (min-width: 768px) {
+        .scrollable-grid {
+            margin-top: 4rem;
+            gap: 2rem;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .scrollable-grid > :nth-child(even) {
+            translate: 0 -4rem;
+        }
     }
 
-    p {
-        margin-top: 0;
-        font-size: clamp(1.25rem, 1.136vw + 0.5rem, 1.5rem);
-    }
-
-    img {
-        width: min(80%, 400px);
+    .review {
+        background-color: var(--color-secondary-medium);
+        border-radius: 1rem;
     }
 </style>

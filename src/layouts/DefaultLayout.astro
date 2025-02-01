@@ -1,0 +1,63 @@
+---
+// Import components
+import CallToAction from "../components/CallToAction.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+
+// Import global styles
+import "../styles/global.css";
+
+// Import Astro runtime
+
+// Define props
+interface Props {
+    metadata: {
+        title: string;
+        description?: string;
+    };
+}
+
+const { metadata } = Astro.props;
+---
+
+<!doctype html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>{metadata.title}</title>
+        <meta name="generator" content={Astro.generator} />
+        {
+            metadata.description && (
+                <meta name="description" content={metadata.description} />
+            )
+        }
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    </head>
+    <body>
+        <Header />
+        <main id="content">
+            <slot />
+        </main>
+        <CallToAction />
+        <Footer />
+    </body>
+</html>
+
+<style>
+    body {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr auto;
+    }
+
+    main {
+        background-color: var(--color-secondary-light);
+    }
+
+    @media (min-width: 50rem) {
+        main {
+            padding-block: 4rem;
+        }
+    }
+</style>

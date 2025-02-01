@@ -1,0 +1,86 @@
+---
+interface NavLink {
+    label: string;
+    href: string;
+}
+
+type NavigationProps = {
+    navLinks: NavLink[];
+    id: string;
+};
+
+const { navLinks, id } = Astro.props as NavigationProps;
+const currentPath = new URL(Astro.request.url).pathname;
+---
+
+<nav class="nav" id={id}>
+    {
+        navLinks.map((link: NavLink) => (
+            <a
+                class={`nav-link ${currentPath.includes(link.href) ? "active" : ""}`}
+                href={link.href}
+            >
+                {link.label}
+            </a>
+        ))
+    }
+</nav>
+
+<!-- Styles -->
+<style>
+    .nav {
+        display: flex;
+        gap: 2rem;
+        flex-wrap: wrap;
+        padding: 2rem;
+    }
+
+    .nav-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.625rem;
+    }
+
+    .nav-link.active {
+        font-weight: bold;
+        text-decoration: none;
+        cursor: default;
+        pointer-events: none;
+    }
+
+    @media (max-width: calc(58em - 1px)) {
+        :global(header) {
+            position: relative;
+        }
+
+        .nav {
+            flex-direction: column;
+            border: none;
+            border-radius: 0;
+            background: none;
+            box-shadow: none;
+            top: 100%;
+        }
+
+        .nav-link {
+            font-size: 1.2rem;
+        }
+
+        .nav-toggle {
+            order: 1;
+        }
+    }
+
+    @media (min-width: 58em) {
+        .nav {
+            padding: 1rem 2rem;
+            border: 1px solid;
+            border-radius: 100vmax;
+            box-shadow: 2px 4px 0 2px var(--color-neutral-dark);
+        }
+        .nav-toggle {
+            display: none;
+        }
+    }
+</style>

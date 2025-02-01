@@ -1,0 +1,39 @@
+<footer id="footer" role="contentinfo">
+    <div class="container alignwide text-sm">
+        <p>
+            © {new Date().getFullYear()} Mine de rien | Designed &amp; Developed
+            by
+            <a
+                href="https://raphaelsanchez.design"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Site web de Raphael Sanchez">Raphael Sanchez</a
+            >
+        </p>
+        <nav aria-label="Footer navigation">
+            <ul>
+                <li><a href="/mentions-legales">Mentions légales</a></li>
+            </ul>
+        </nav>
+    </div>
+</footer>
+
+<style>
+    footer {
+        padding-block: 1rem;
+        border-top: 1px solid;
+        background-color: var(--color-secondary-medium);
+    }
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .footer__cookies {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-inline: auto;
+    }
+</style>

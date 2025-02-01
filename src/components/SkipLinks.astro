@@ -1,0 +1,31 @@
+<ul class="skip-links">
+    <li><a class="skip-link" href="#content">Allez au contenu principal</a></li>
+    <li><a class="skip-link" href="#footer">Allez au pied de page</a></li>
+</ul>
+
+<!-- Style -->
+<style>
+    .skip-links {
+        position: fixed;
+        top: 1rem;
+        left: 1rem;
+        display: flex;
+        gap: 2rem;
+        background-color: white;
+        border: 1px solid;
+        border-radius: 1rem;
+        margin: 0;
+        padding: 1rem;
+        list-style: none;
+        transform: translateY(-200%);
+        transition: transform 0.3s;
+    }
+
+    .skip-links:focus-within {
+        transform: translateY(0);
+    }
+
+    .skip-link {
+        text-decoration: none;
+    }
+</style>

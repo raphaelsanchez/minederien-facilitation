@@ -1,0 +1,46 @@
+---
+import { type CollectionEntry, getCollection, render } from "astro:content";
+import DefaultLayout from "../../layouts/DefaultLayout.astro";
+
+export async function getStaticPaths() {
+    const posts = await getCollection("collaborations");
+    return posts.map((post) => ({
+        params: { slug: post.id },
+        props: post,
+    }));
+}
+type Props = CollectionEntry<"collaborations">;
+
+const post = Astro.props;
+const { Content } = await render(post);
+
+const metadata = {
+    title: `${post.data.title} | Mine de rien`,
+    description: post.data.description,
+};
+---
+
+<DefaultLayout metadata={metadata}>
+    <header class="container">
+        <a href="/collaborations">
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                style="display: inline-block; vertical-align: middle; margin-right: 0.5rem;"
+                ><path
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="m12 19l-7-7l7-7m7 7H5"></path></svg
+            >Collaborations
+        </a>
+        <h1>{post.data.title}</h1>
+    </header>
+    <section class="container">
+        <Content />
+    </section>
+</DefaultLayout>

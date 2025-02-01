@@ -1,0 +1,126 @@
+---
+import Layout from "../layouts/DefaultLayout.astro";
+
+// Metadatas
+const metadata = {
+    title: "Offres | Mine de rien",
+    description: "Découvrez les offres de Mine de rien",
+};
+---
+
+<Layout metadata={metadata}>
+    <header class="container alignwide">
+        <div>
+            <h1>Mes Offres</h1>
+            <p class="text-xl">
+                Vous avez une idée à faire passer, un produit à présenter ? Vous
+                souhaitez mener une réflexion collective ? Ou simplement
+                dynamiser votre événement ?
+            </p>
+            <p class="text-xl">
+                Je réponds à vos besoins en proposant différents outils et
+                expériences sur-mesure :
+            </p>
+        </div>
+        <div></div>
+    </header>
+
+    <section class="container">
+        <h2>Scribing événementiel</h2>
+        <p>
+            Il s’agit de dessiner en direct sur une fresque murale ou sur un
+            carton plume pour restituer l’ambiance générale de vos moments
+            festifs (séminaire, anniversaire) : mettre en lumière les émotions
+            des participants et capter les messages forts de la soirée. A la
+            clé, vous avez une animation le jour J et un souvenir de votre
+            événement. Vous conservez une œuvre qui pourra être déclinée /
+            diffusée sur vos canaux de communication.
+        </p>
+        <p>
+            tarif : <strong> 500€ la soirée ou demi-journée </strong>
+        </p>
+
+        <h2>Scribing collaboratif</h2>
+        <p>
+            Il s’agit de dessiner en direct sur papier ou sur iPad Pro pour
+            accompagner et synthétiser vos échanges et réflexions lors d’une
+            réunion, d’une conférence ou d’un atelier collectif. A la clé, vous
+            captez l'attention des participants, allez à l'essentiel et
+            facilitez la mémorisation de vos messages. Vous conservez un support
+            qui pourra être décliné au format numérique / diffusé sur vos canaux
+            de communication.
+        </p>
+        <p>Tarif : <strong>600€ la demi-journée</strong></p>
+
+        <h2>Infographie dessinée</h2>
+        <p>
+            Il s’agit de réaliser une synthèse visuelle de vos rédactions
+            institutionnelles (charte, stratégie) au format numérique pour
+            faciliter la mémorisation de vos messages. A la clé, vous avez un
+            résumé de votre document et un support pédagogique qui pourra être
+            diffusé sur vos canaux de communication.
+        </p>
+        <p>Tarif : <strong>300 € / jour travaillé</strong></p>
+        <small>
+            <em>(Tout dépend de la taille de votre document à synthétiser)</em>
+        </small>
+
+        <h2>Storytelling dessiné</h2>
+        <p>
+            Il s’agit de se rendre sur le terrain pour réaliser un reportage
+            dessiné sur plusieurs planches papier ou sur iPad Pro : raconter
+            l’histoire de votre produit, mettre en avant les étapes de votre
+            projet ou encore faire le portrait de vos collaborateurs. A la clé,
+            vous avez un outil de valorisation qui pourra être décliné / diffusé
+            sur vos canaux de communication.
+        </p>
+        <p>
+            Tarif : <strong>800 € la journée</strong>
+        </p>
+        <small>
+            <em>
+                (Tout dépend du nombre de jours mobilisés pour le reportage)
+            </em>
+        </small>
+
+        <h2>Vidéo scribing</h2>
+        <p>
+            Il s’agit de réaliser une animation visuelle avec des dessins
+            personnalisés pour communiquer sur un produit / projet ou une
+            stratégie. L’ajout d’une bande son et d’une voix off vous sont
+            proposés en option. A la clé, vous avez un outil visuel et ludique
+            qui pourra être diffusé sur vos canaux de communication.
+        </p>
+        <p>
+            Tarif : <strong>1 000 € / jour travaillé</strong>
+        </p>
+        <small>
+            <em>(Tout dépend de la taille de votre vidéo)</em>.
+        </small>
+
+        <h2>Ateliers visuels</h2>
+        <p>
+            Il s’agit de co-construire en groupe des outils visuels pour
+            faciliter votre quotidien : aide à la gestion de projet ou
+            management visuel pour mieux embarquer vos équipes. A la clé, vous
+            avez un ou des outils personnalisés et réutilisables.
+        </p>
+        <p>Tarif : <strong>500€ la demi-journée</strong></p>
+    </section>
+</Layout>
+
+<style>
+    header {
+        display: grid;
+        gap: 1rem;
+        margin-inline: auto;
+        max-width: var(--max-width);
+    }
+
+    @media (min-width: 768px) {
+        header {
+            align-items: center;
+            grid-template-columns: 2fr 1fr;
+        }
+    }
+</style>
