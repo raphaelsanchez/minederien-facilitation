@@ -1,0 +1,31 @@
+---
+import Review from "../components/Review.astro";
+import Layout from "../layouts/DefaultLayout.astro";
+
+import { getCollection } from "astro:content";
+
+// Metadatas
+const metadata = {
+    title: "Avis clients | Mine de rien",
+    description: "Parce que ce sont les clients parlent le mieux !",
+};
+
+// Get reviews
+const allReviews = await getCollection("reviews");
+---
+
+<Layout metadata={metadata}>
+    <header class="container">
+        <h1>Avis clients</h1>
+        <p class="text-xl">
+            Je suis fière de partager avec vous les témoignages authentiques de
+            ceux qui ont fait confiance à Mine de rien. Découvrez leurs
+            expériences et voyez par vous-même pourquoi tant de personnes
+            choisissent mes services.
+        </p>
+    </header>
+
+    <section class="container stack">
+        {allReviews.map((review) => <Review class="review" {...review} />)}
+    </section>
+</Layout>

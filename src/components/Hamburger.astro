@@ -1,0 +1,62 @@
+---
+type Props = {
+    class: string;
+    targetSelector: string;
+};
+
+const { class: className, targetSelector, ...rest } = Astro.props;
+---
+
+<button
+    class={`${className} toggle-menu-button`}
+    aria-label="Toggle menu"
+    aria-expanded="false"
+    {...rest}
+>
+    <span class="toggle-icon">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </span>
+</button>
+
+<style>
+    .toggle-menu-button {
+        display: block;
+        cursor: pointer;
+        background: none;
+        border: none;
+    }
+
+    .toggle-icon {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .bar {
+        width: 25px;
+        height: 2px;
+        background-color: black;
+        transition: all 0.3s ease;
+    }
+
+    .toggle-menu-button[aria-expanded="true"] .bar:nth-child(1) {
+        transform: translateY(6px) rotate(45deg);
+    }
+
+    .toggle-menu-button[aria-expanded="true"] .bar:nth-child(2) {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+
+    .toggle-menu-button[aria-expanded="true"] .bar:nth-child(3) {
+        transform: translateY(-6px) rotate(-45deg);
+    }
+
+    @media (min-width: 58em) {
+        .toggle-menu-button {
+            display: none;
+        }
+    }
+</style>

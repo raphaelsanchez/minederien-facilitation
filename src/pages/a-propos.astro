@@ -1,0 +1,73 @@
+---
+import { Picture } from "astro:assets";
+import Layout from "../layouts/DefaultLayout.astro";
+
+import me from "../assets/me.png";
+
+// Metadatas
+const metadata = {
+    title: "Mine de rien, Facilication graphique",
+    description: "Facilication graphique",
+};
+---
+
+<Layout metadata={metadata}>
+    <header class="container alignwide">
+        <div>
+            <h1>Hello, moi c'est Emilie 👋</h1>
+            <p class="text-xl">
+                Je vous accompage par le visuel pour faciliter les
+                apprentissages, embarquer les équipes et animer vos événements.
+            </p>
+        </div>
+        <Picture src={me} alt="Photo de emilie" width={400} />
+    </header>
+    <section class="container">
+        <h2>Mon domaine de compétences</h2>
+        <p>
+            Spécialiste de la synthèse verbale et visuelle, je suis à la
+            recherche du support créatif qui donnera sens à la pensée pour mieux
+            transmettre et intégrer efficacement des messages et apprentissages.
+            Je stimule constamment ma créativité en l’exprimant sous toutes ses
+            formes (théâtre, chant, dessin, peinture...).
+        </p>
+        <h2>Mine de rien</h2>
+        <p>
+            En explorant d'autres méthodes de communication, j'ai découvert la
+            facilitation graphique. Alliant communication visuelle et pédagogie,
+            la discipline m'est apparue comme une évidence !
+        </p>
+        <p>
+            En juillet 2023, je lance mon entreprise Mine de rien. Pour vous
+            accompagner, vous pouvez compter sur ma capacité d’adaptation et ma
+            créativité, le tout avec une pointe d'humour.
+        </p>
+
+        <h2>Mes valeurs</h2>
+        <p>
+            Je suis engagée dans la transformation écologique et soutiens le
+            milieu de l'artisanat et de l'économie locale et circulaire. Je
+            crois en la perméabilité des métiers, en la complémentarité des
+            compétences, aux nouvelles alternatives de travail, au développement
+            et à l’enrichissement personnel. Car c’est ensemble que nous pouvons
+            offrir tout notre potentiel pour donner vie à des projets de
+            valeurs.
+        </p>
+    </section>
+</Layout>
+
+<style>
+    header {
+        display: grid;
+        gap: 1rem;
+        margin-inline: auto;
+        max-width: var(--max-width);
+    }
+
+    @media (min-width: 768px) {
+        header {
+            align-items: center;
+            grid-template-columns: 2fr 1fr;
+        }
+    }
+</style>

@@ -1,0 +1,90 @@
+---
+const { href, ariaLabel, disabled } = Astro.props;
+---
+
+{
+    href ? (
+        <a
+            class={`button ${disabled ? "disabled" : ""}`}
+            href={href}
+            aria-label={ariaLabel}
+            role="button"
+            aria-disabled={disabled ? "true" : "false"}
+            tabindex={disabled ? "-1" : "0"}
+        >
+            <slot />
+        </a>
+    ) : (
+        <button
+            class="button"
+            aria-label={ariaLabel}
+            type="button"
+            disabled={disabled}
+        >
+            <slot />
+        </button>
+    )
+}
+
+<style>
+    .button {
+        --button-radius: 100vmax;
+        isolation: isolate;
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+
+        gap: 1rem;
+        padding: 0.5rem 1rem;
+        width: max-content;
+        max-width: 100%;
+
+        background-color: var(--color-secondary);
+        border: 1px solid var(--color-neutral-dark);
+        border-radius: var(--button-radius);
+        text-decoration: none;
+        font-family: var(--font-brand);
+        font-size: var(--text-3xl);
+        line-height: 1;
+        color: var(--color-neutral-dark);
+
+        cursor: pointer;
+        transition: background-color var(--transition);
+
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: var(--button-radius);
+            transition:
+                transform var(--transition),
+                opacity var(--transition);
+        }
+
+        &::before {
+            border: 1px solid var(--color-neutral-dark);
+            transform: translate(4px, 2px) rotate(2deg);
+        }
+        &::after {
+            border: 1px solid var(--color-neutral-dark);
+            transform: translate(-4px, -2px) rotate(-2deg);
+            z-index: -1;
+        }
+    }
+
+    .button:hover,
+    .button:focus-visible {
+        &::before,
+        &::after {
+            transform: translate(0, 0) rotate(0);
+            opacity: 0;
+        }
+    }
+
+    .button.disabled,
+    .button[aria-disabled="true"] {
+        cursor: not-allowed;
+        opacity: 0.5;
+    }
+</style>

@@ -1,0 +1,37 @@
+---
+const {
+    data: { author, author_info, content },
+    ...rest
+} = Astro.props;
+---
+
+<blockquote {...rest}>
+    <p>{content}</p>
+    <footer>
+        <cite>{author}</cite>{author_info && `, ${author_info}`}
+    </footer>
+</blockquote>
+
+<style>
+    blockquote {
+        margin: 0;
+        padding: 2rem;
+    }
+    p {
+        font-family: var(--font-brand);
+        font-size: 1.75rem;
+        line-height: 1;
+    }
+
+    footer {
+        margin-block-start: 1rem;
+        padding-inline-start: 0.5rem;
+        border-inline-start: 1px solid var(--color-neutral-medium);
+        font-size: var(--text-sm);
+    }
+
+    cite {
+        font-weight: bold;
+        font-style: normal;
+    }
+</style>

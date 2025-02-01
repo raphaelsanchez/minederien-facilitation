@@ -1,0 +1,65 @@
+---
+import Layout from "../../layouts/DefaultLayout.astro";
+
+import { getCollection } from "astro:content";
+
+// Metadatas
+const metadata = {
+    title: "Mine de rien, Facilication graphique",
+    description: "Facilication graphique",
+};
+
+// Get reviews
+const allCollaborations = (await getCollection("collaborations")).sort(
+    (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
+);
+---
+
+<Layout metadata={metadata}>
+    <header class="container alignwide">
+        <div>
+            <h1>Collaborations</h1>
+            <p class="text-xl">
+                En tant que facilitatrice graphique, je collabore avec des
+                entreprises et des collectivités pour transformer des idées
+                complexes en visuels clairs et engageants. Mon expertise permet
+                de faciliter la communication, d'encourager la créativité et de
+                renforcer la compréhension au sein des équipes et des projets.
+                Découvrez ci-dessous quelques-unes de mes collaborations et les
+                restitutions graphiques réalisées.
+            </p>
+        </div>
+        <div></div>
+    </header>
+
+    <section class="container">
+        <h2 class="sr-only">Liste des collaborations</h2>
+        {
+            allCollaborations.map((collaboration) => (
+                <div class="stack">
+                    <h3>{collaboration.data.title}</h3>
+                    <p>{collaboration.data.description}</p>
+                    <a href={`/collaborations/${collaboration.id}/`}>
+                        Voir la restitution
+                    </a>
+                </div>
+            ))
+        }
+    </section>
+</Layout>
+
+<style>
+    header {
+        display: grid;
+        gap: 1rem;
+        margin-inline: auto;
+        max-width: var(--max-width);
+    }
+
+    @media (min-width: 768px) {
+        header {
+            align-items: center;
+            grid-template-columns: 2fr 1fr;
+        }
+    }
+</style>
