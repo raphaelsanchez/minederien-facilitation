@@ -6,12 +6,10 @@ import Navigation from "./Navigation.astro";
 import SkipLinks from "./SkipLinks.astro";
 import SocialLinks from "./SocialLinks.astro";
 
-const navLinks = [
-    { href: "/a-propos", label: "À propos" },
-    { href: "/collaborations", label: "Collaborations" },
-    { href: "/offres", label: "Mes offres" },
-    { href: "#footer", label: "Keep in touch !" },
-];
+import content from "../content/settings.json";
+
+// Set the navigation links
+const navLinks = content.navigation.mainMenu;
 ---
 
 <SkipLinks />

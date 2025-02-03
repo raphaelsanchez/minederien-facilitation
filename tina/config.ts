@@ -1,5 +1,6 @@
 import { defineConfig } from 'tinacms'
 import { collaborationsCollection } from './collections/collaborationsCollection'
+import { ConfigCollection } from './collections/configCollections'
 import { reviewsCollection } from './collections/reviewsCollection'
 
 // Your hosting provider likely exposes this as an environment variable
@@ -23,12 +24,16 @@ export default defineConfig({
     },
     media: {
         tina: {
-            mediaRoot: '',
+            mediaRoot: 'media',
             publicFolder: 'public',
         },
     },
     // See docs on content modeling for more info on how to setup new content models: https://tina.io/docs/schema/
     schema: {
-        collections: [collaborationsCollection, reviewsCollection],
+        collections: [
+            collaborationsCollection,
+            reviewsCollection,
+            ConfigCollection,
+        ],
     },
 })

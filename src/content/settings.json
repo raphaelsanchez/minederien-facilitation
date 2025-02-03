@@ -1,0 +1,37 @@
+{
+  "seo": {
+    "title": "Mine de rien",
+    "description": "Facilitation graphique à Rouen, Le Havre, Caen",
+    "author": "Émilie Allard"
+  },
+  "socials": {
+    "linkedIn": "https://www.linkedin.com/in/emilie-allard/",
+    "instagram": "https://www.instagram.com/minederien.facilitation"
+  },
+  "navigation": {
+    "mainMenu": [
+      {
+        "label": "À propos",
+        "url": "/a-propos"
+      },
+      {
+        "label": "Collaborations",
+        "url": "/collaborations"
+      },
+      {
+        "label": "Mes offres",
+        "url": "/offres"
+      },
+      {
+        "label": "Keep in touch !",
+        "url": "#contact"
+      }
+    ],
+    "footerMenu": [
+      {
+        "label": "Mentions légales",
+        "url": "/mentions-legales"
+      }
+    ]
+  }
+}

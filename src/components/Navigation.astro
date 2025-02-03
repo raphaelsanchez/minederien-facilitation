@@ -1,7 +1,7 @@
 ---
 interface NavLink {
     label: string;
-    href: string;
+    url: string;
 }
 
 type NavigationProps = {
@@ -17,8 +17,8 @@ const currentPath = new URL(Astro.request.url).pathname;
     {
         navLinks.map((link: NavLink) => (
             <a
-                class={`nav-link ${currentPath.includes(link.href) ? "active" : ""}`}
-                href={link.href}
+                class={`nav-link ${currentPath.includes(link.url) ? "active" : ""}`}
+                href={link.url}
             >
                 {link.label}
             </a>

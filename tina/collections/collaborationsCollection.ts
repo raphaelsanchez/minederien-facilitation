@@ -4,6 +4,7 @@ export const collaborationsCollection: Collection = {
     name: 'collaborations',
     label: 'Collaborations',
     path: 'src/content/collaborations',
+
     fields: [
         {
             type: 'string',
