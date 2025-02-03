@@ -1,15 +1,15 @@
 ---
-title: "Métropole Rouen Normandie : co-construire avec les citoyens"
-description: "Restitution visuelle de 3 week-ends de convention citoyenne et synthèse de la charte de la Participation citoyenne pour la Métropole Rouen Normandie."
-publishDate: "2025-01-28 00:00:00"
-slug: "metropole-rouen-normandie-co-construire-avec-les-citoyens"
+title: 'Métropole Rouen Normandie : co-construire avec les citoyens'
+slug: metropole-rouen-normandie-co-construire-avec-les-citoyens
+description: >-
+  Restitution visuelle de 3 week-ends de convention citoyenne et synthèse de la
+  charte de la Participation citoyenne pour la Métropole Rouen Normandie.
+publishDate: 2025-02-01T23:00:00.000Z
 ---
 
 ## Qui/quoi
 
 Fin d’année 2023, j’ai été missionnée par le service Participation et citoyenneté de la Métropole de Rouen Normandie pour faire la restitution de 3 week-ends de convention citoyenne, entre décembre 2023 et avril 2024. J’ai également réalisé la synthèse de la charte de la Participation citoyenne.
-
-[Mon lien](https://www.metropole-rouen-normandie.fr/) avec la Métropole Rouen Normandie.
 
 ## Context
 
@@ -19,7 +19,7 @@ Afin d’échanger et construire avec les habitants·es le « projet d’aveni
 
 J’ai participé aux sessions des 2 & 3 décembre 2023, 17 & 18 février 2024 et 13 & 14 avril 2024. Grâce à ma présence les samedis au moment des interventions et des ateliers, j’ai pu m’imprégner de l’ambiance conviviale, des sujets et des réflexions collectives. Observation, écoute active et premières prises de note visuelle étaient de mise ! ce qui a facilité mes restitutions visuelles en direct des dimanches matins.
 
-J’ai travaillé sur des fresques grand format pour mettre en lumière les apports des participants et pour donner une vision synthétique et imagée de chaque thématique.  
+J’ai travaillé sur des fresques grand format pour mettre en lumière les apports des participants et pour donner une vision synthétique et imagée de chaque thématique.\
 Le 19 juin 2024, les membres de la convention citoyenne ont présenté leurs conclusions au Président et aux vice-présidents de la Métropole. A cette occasion, les fresques ont été déclinées au format numérique et imprimées pour affichage et intégrées dans le rapport distribué à tous les participants.
 
 ## Restitutions
