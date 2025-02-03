@@ -1,5 +1,5 @@
 ---
-const { href, ariaLabel, disabled } = Astro.props;
+const { href, ariaLabel, disabled, ...rest } = Astro.props;
 ---
 
 {
@@ -11,6 +11,7 @@ const { href, ariaLabel, disabled } = Astro.props;
             role="button"
             aria-disabled={disabled ? "true" : "false"}
             tabindex={disabled ? "-1" : "0"}
+            {...rest}
         >
             <slot />
         </a>
@@ -35,7 +36,8 @@ const { href, ariaLabel, disabled } = Astro.props;
         align-items: center;
 
         gap: 1rem;
-        padding: 0.5rem 1rem;
+        padding-block: 0.75rem 0.25rem;
+        padding-inline: 1rem;
         width: max-content;
         max-width: 100%;
 
