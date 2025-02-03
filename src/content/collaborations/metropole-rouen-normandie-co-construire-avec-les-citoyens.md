@@ -4,8 +4,9 @@ slug: metropole-rouen-normandie-co-construire-avec-les-citoyens
 description: >-
   Restitution visuelle de 3 week-ends de convention citoyenne et synthèse de la
   charte de la Participation citoyenne pour la Métropole Rouen Normandie.
-publishDate: 2025-02-01T23:00:00.000Z
+publishDate: '2025-02-01T23:00:00.000Z'
 ---
+
 
 ## Qui/quoi
 

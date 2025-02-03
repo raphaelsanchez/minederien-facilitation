@@ -1,11 +1,13 @@
 ---
-title: Raphael Sanchez Design
+title: 'Raphael Sanchez Design: Une collaboration engagée pour un web plus responsable'
 slug: raphael-sanchez-design
 description: >-
   Je suis ravi de collaborer avec Raphael Sanchez pour la conception de mon
   nouveau site éco-conçu.
-publishDate: 2025-02-02T23:00:00.000Z
+publishDate: '2025-02-02T23:00:00.000Z'
 ---
+
+
 
 ## Une collaboration engagée pour un web plus responsable 🌿
 

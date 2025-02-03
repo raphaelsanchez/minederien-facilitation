@@ -1,4 +1,7 @@
 import { defineConfig } from 'tinacms'
+import { collaborationsCollection } from './collections/collaborationsCollection'
+import { ConfigCollection } from './collections/configCollections'
+import { reviewsCollection } from './collections/reviewsCollection'
 
 // Your hosting provider likely exposes this as an environment variable
 const branch =
@@ -21,49 +24,16 @@ export default defineConfig({
     },
     media: {
         tina: {
-            mediaRoot: '',
+            mediaRoot: 'media',
             publicFolder: 'public',
         },
     },
     // See docs on content modeling for more info on how to setup new content models: https://tina.io/docs/schema/
     schema: {
         collections: [
-            {
-                name: 'collaborations',
-                label: 'Collaborations',
-                path: 'src/content/collaborations',
-                fields: [
-                    {
-                        type: 'string',
-                        name: 'title',
-                        label: 'Title',
-                    },
-                    {
-                        type: 'string',
-                        name: 'slug',
-                        label: 'Slug',
-                    },
-                    {
-                        type: 'string',
-                        name: 'description',
-                        label: 'Description',
-                    },
-                    {
-                        type: 'datetime',
-                        name: 'publishDate',
-                        label: 'Publish Date',
-                        ui: {
-                            dateFormat: 'DD/MM/YYYY',
-                        },
-                    },
-                    {
-                        type: 'rich-text',
-                        name: 'body',
-                        label: 'Body',
-                        isBody: true,
-                    },
-                ],
-            },
+            collaborationsCollection,
+            reviewsCollection,
+            ConfigCollection,
         ],
     },
 })
