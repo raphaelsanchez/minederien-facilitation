@@ -4,10 +4,8 @@ slug: raphael-sanchez-design
 description: >-
   Je suis ravi de collaborer avec Raphael Sanchez pour la conception de mon
   nouveau site éco-conçu.
-publishDate: '2025-02-02T23:00:00.000Z'
+publishDate: 2025-02-02T23:00:00.000Z
 ---
-
-
 
 ## Une collaboration engagée pour un web plus responsable 🌿
 
@@ -18,3 +16,5 @@ Grâce à l’expertise de Raphael en design et optimisation écologique, nous t
 Restez connectés pour découvrir bientôt le fruit de cette collaboration ! 🚀🌍
 
 Test d'jout de contenu depuis TIna
+
+![](/media/le-formaldehyde-le-danger-des-produits-menagers.png)
